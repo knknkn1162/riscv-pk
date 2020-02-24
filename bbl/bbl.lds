@@ -99,6 +99,7 @@ SECTIONS
   . = ALIGN(0x1000);
   _end = .;
 
+  . = PAYLOAD_START;
   .payload :
   {
     *(.payload)

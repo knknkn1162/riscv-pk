@@ -594,6 +594,7 @@ BBL_LOGO_FILE
 BBL_PAYLOAD
 BBL_ENABLE_LOGO
 MEM_START
+PAYLOAD_START
 WITH_ABI
 WITH_ARCH
 RISCV
@@ -675,6 +676,7 @@ with_arch
 with_abi
 enable_print_device_tree
 with_mem_start
+with_payload_start
 enable_zero_bss
 enable_optional_subprojects
 enable_vm
@@ -1329,6 +1331,7 @@ Optional Packages:
   --with-arch             Set the RISC-V architecture
   --with-abi              Set the RISC-V ABI
   --with-mem-start        Set physical memory start address
+  --with-payload-start    Set physical memory payload start address
   --with-payload          Set ELF payload for bbl
   --with-logo             Specify a better logo
 
@@ -4121,6 +4124,12 @@ else
    MEM_START=0x80000000
 
 
+fi
+
+# Check whether --with-payload-start was given.
+if test "${with_payload_start+set}" = set; then :
+  withval=$with_payload_start;
+   PAYLOAD_START=$with_payload_start
 fi
 
 

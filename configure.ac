@@ -107,6 +107,13 @@ AC_ARG_WITH([mem-start], AS_HELP_STRING([--with-mem-start], [Set physical memory
    AC_SUBST([MEM_START], [0x80000000], [Physical memory start address])
   ])
 
+AC_ARG_WITH([payload-start], AS_HELP_STRING([--with-payload-start], [Set physical memory payload address]),
+  [
+   AC_SUBST([PAYLOAD_START], $with_payload_start, [Physical memory payload start address])
+  ], [
+   AC_SUBST([PAYLOAD_START], [0x80200000], [Physical memory payload start address])
+  ])
+
 AC_ARG_ENABLE([zero-bss], AS_HELP_STRING([--enable-zero-bss], [Manually zero out BSS when booting]))
 AS_IF([test "x$enable_zero_bss" = "xyes"], [
   AC_DEFINE([ZERO_BSS],,[Define if BSS should be manually zeroed when booting])
